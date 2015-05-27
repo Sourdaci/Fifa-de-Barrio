@@ -18,4 +18,9 @@ public class Partido
         local = equi1;
         visitante = equi2;
     }
+    
+    public void mostrarAlineaciones(){
+        local.mostrarAlineaciones();
+        visitante.mostrarAlineaciones();
+    }
 }
