@@ -21,6 +21,7 @@ public class Partido
     
     public void mostrarAlineaciones(){
         local.mostrarAlineaciones();
+        System.out.println("");
         visitante.mostrarAlineaciones();
     }
 }

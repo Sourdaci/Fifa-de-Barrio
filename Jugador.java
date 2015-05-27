@@ -40,5 +40,13 @@ public abstract class Jugador
         return dorsal;
     }
     
+    @Override
+    public String toString(){
+        String cadena = String.format("%s %2d%s ", "Dorsal", dorsal, ".");
+        cadena += String.format("%-30s", (nombre + " (Edad " + edad + ")"));
+        cadena += String.format("%s: %d", "Forma", estadoForma);
+        return cadena;
+    }
+    
     public abstract int getValoracion();
 }

@@ -34,4 +34,9 @@ public class JugadorDeCampo extends Jugador
     public int getValoracion(){
         return (int) ((getEstadoForma() + pase + regate + remate) / 4);
     }
+    
+    @Override
+    public String toString(){
+        return (super.toString() + "\tPases: " + pase + "\tRegate: " + regate + "\tRemate: " + remate);
+    }
 }

@@ -94,6 +94,29 @@ public class Equipo
     }
     
     public void mostrarAlineaciones(){
-        
+        float acumulador = 0;
+        ArrayList<Jugador> alinear = new ArrayList<Jugador>(jugadores);
+        System.out.println(nombre + "\nTitulares");
+        Portero parador = (Portero) alinear.remove(0);
+        System.out.println(parador.toString() + "\tValoracion: " + parador.getValoracion());
+        acumulador += parador.getValoracion();
+        Random aleatorio = new Random();
+        Jugador queCorre = alinear.remove(aleatorio.nextInt(alinear.size()));
+        int liderazgo = aleatorio.nextInt(6);
+        System.out.println(queCorre.toString() + "\tValoracion: " + (queCorre.getValoracion() + liderazgo) + "\tLiderazgo: " + liderazgo);
+        acumulador += queCorre.getValoracion() + liderazgo;
+        for (int i=0; i<9; i++){
+            queCorre = alinear.remove(aleatorio.nextInt(alinear.size()));
+            System.out.println(queCorre.toString() + "\tValoracion: " + queCorre.getValoracion());
+            acumulador += queCorre.getValoracion();
+        }
+        System.out.print("*********************************** ");
+        System.out.print("Media de valoracion del equipo titular: ");
+        System.out.print(String.format("%.2f", (acumulador / 11)));
+        System.out.print(" ***********************************\nReservas:\n");
+        while(!alinear.isEmpty()){
+            queCorre = alinear.remove(aleatorio.nextInt(alinear.size()));
+            System.out.println(queCorre.toString() + "\tValoracion: " + queCorre.getValoracion());
+        }
     }
 }

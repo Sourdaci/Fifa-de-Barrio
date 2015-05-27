@@ -28,4 +28,9 @@ public class Portero extends Jugador
     public int getValoracion(){
         return (int) ((getEstadoForma() + agilidad + fortalezaMental) / 3);
     }
+    
+    @Override
+    public String toString(){
+        return (super.toString() + "\tAgilidad: " + agilidad + "\tFort.M: " + fortalezaMental);
+    }
 }
