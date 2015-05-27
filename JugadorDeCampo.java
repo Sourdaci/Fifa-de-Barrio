@@ -30,4 +30,8 @@ public class JugadorDeCampo extends Jugador
     public int getRemate(){
         return remate;
     }
+    
+    public int getValoracion(){
+        return (int) ((getEstadoForma() + pase + regate + remate) / 4);
+    }
 }

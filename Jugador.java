@@ -40,5 +40,5 @@ public abstract class Jugador
         return dorsal;
     }
     
-    
+    public abstract int getValoracion();
 }

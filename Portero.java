@@ -24,4 +24,8 @@ public class Portero extends Jugador
     public int getFortalezaMental(){
         return fortalezaMental;
     }
+    
+    public int getValoracion(){
+        return (int) ((getEstadoForma() + agilidad + fortalezaMental) / 3);
+    }
 }
