@@ -37,6 +37,10 @@ public class JugadorDeCampo extends Jugador
     
     @Override
     public String toString(){
-        return (super.toString() + "\tPases: " + pase + "\tRegate: " + regate + "\tRemate: " + remate);
+        String cadena = super.toString();
+        cadena += String.format("  %s: %-2d", "Pases", pase);
+        cadena += String.format("  %s: %-2d", "Regate", regate);
+        cadena += String.format("  %s: %-2d", "Remate", remate);
+        return cadena;
     }
 }

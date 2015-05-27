@@ -13,7 +13,11 @@ public class Equipo
     private String nombre;
     private ArrayList<Jugador> jugadores;
     private int dorsalActual = 1;
-    private static ArrayList<String> nombres;
+    private static String nombres[] = {"Ramon", "Pedro", "Juan", "Mario", "Marcos", "Miguel", 
+        "Luis", "Carlos", "Jose Ramon", "Federico", "Alberto", "Roberto", "Ruben", "Guillermo", 
+        "Hector", "Mario", "Felipe", "Manuel", "Tomas", "Agustin", "Jose Manuel", "Juan Jesus", 
+        "Pepe", "Ricardo", "Fernando", "Antonio", "Jose Alberto", "Jose Luis", "David", 
+        "Emilio", "Cesar", "German", "Raul", "Pablo"};
 
     /**
      * Constructor for objects of class Equipo
@@ -23,58 +27,19 @@ public class Equipo
         nombre = nom;
         numJugadores = num;
         jugadores = new ArrayList<Jugador>();
-        nombres = new ArrayList<String>();
-        creaNombres();
         creaEquipo();
-    }
-    
-    private void creaNombres(){
-        nombres.add("Ramon");
-        nombres.add("Pedro");
-        nombres.add("Juan");
-        nombres.add("Mario");
-        nombres.add("Marcos");
-        nombres.add("Miguel");
-        nombres.add("Luis");
-        nombres.add("Carlos");
-        nombres.add("Jose Ramon");
-        nombres.add("Federico");
-        nombres.add("Alberto");
-        nombres.add("Roberto");
-        nombres.add("Ruben");
-        nombres.add("Guillermo");
-        nombres.add("Hector");
-        nombres.add("Mario");
-        nombres.add("Felipe");
-        nombres.add("Manuel");
-        nombres.add("Tomas");
-        nombres.add("Agustin");
-        nombres.add("Jose Manuel");
-        nombres.add("Juan Jesus");
-        nombres.add("Pepe");
-        nombres.add("Ricardo");
-        nombres.add("Fernando");
-        nombres.add("Antonio");
-        nombres.add("Jose Alberto");
-        nombres.add("Jose Luis");
-        nombres.add("David");
-        nombres.add("Emilio");
-        nombres.add("Cesar");
-        nombres.add("German");
-        nombres.add("Raul");
-        nombres.add("Pablo");
     }
     
     private void creaEquipo(){
         Random aleatorio = new Random();
-        String nom = nombres.remove(aleatorio.nextInt(nombres.size()));
+        String nom = nombres[aleatorio.nextInt(nombres.length)];
         int edad = aleatorio.nextInt(23) + 18;
         int estadoForma = aleatorio.nextInt(11);
         int pase, regate, remate;
         jugadores.add(new Portero(nom, edad, estadoForma, dorsalActual, aleatorio.nextInt(11), aleatorio.nextInt(11)));
         dorsalActual++;
         for (int i=1; i<numJugadores; i++){
-            nom = nombres.remove(aleatorio.nextInt(nombres.size()));
+            nom = nombres[aleatorio.nextInt(nombres.length)];
             edad = aleatorio.nextInt(23) + 18;
             estadoForma = aleatorio.nextInt(11);
             pase = aleatorio.nextInt(11);
@@ -98,7 +63,7 @@ public class Equipo
         ArrayList<Jugador> alinear = new ArrayList<Jugador>(jugadores);
         System.out.println(nombre + "\nTitulares");
         Portero parador = (Portero) alinear.remove(0);
-        System.out.println(parador.toString() + "\tValoracion: " + parador.getValoracion());
+        System.out.println(parador.toString() + String.format("%12s%s: %d", "", "\tValoracion", parador.getValoracion()));
         acumulador += parador.getValoracion();
         Random aleatorio = new Random();
         Jugador queCorre = alinear.remove(aleatorio.nextInt(alinear.size()));
@@ -110,10 +75,10 @@ public class Equipo
             System.out.println(queCorre.toString() + "\tValoracion: " + queCorre.getValoracion());
             acumulador += queCorre.getValoracion();
         }
-        System.out.print("*********************************** ");
+        System.out.print("**************************** ");
         System.out.print("Media de valoracion del equipo titular: ");
         System.out.print(String.format("%.2f", (acumulador / 11)));
-        System.out.print(" ***********************************\nReservas:\n");
+        System.out.print(" ****************************\nReservas:\n");
         while(!alinear.isEmpty()){
             queCorre = alinear.remove(aleatorio.nextInt(alinear.size()));
             System.out.println(queCorre.toString() + "\tValoracion: " + queCorre.getValoracion());

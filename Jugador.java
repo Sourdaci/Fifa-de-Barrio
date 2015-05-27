@@ -43,8 +43,8 @@ public abstract class Jugador
     @Override
     public String toString(){
         String cadena = String.format("%s %2d%s ", "Dorsal", dorsal, ".");
-        cadena += String.format("%-30s", (nombre + " (Edad " + edad + ")"));
-        cadena += String.format("%s: %d", "Forma", estadoForma);
+        cadena += String.format("%-29s", (nombre + " (Edad " + edad + ")"));
+        cadena += String.format("%s: %-2d", "Forma", estadoForma);
         return cadena;
     }
     
