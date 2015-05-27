@@ -7,11 +7,27 @@
  */
 public class JugadorDeCampo extends Jugador
 {
-    /**
-     * Constructor for objects of class JugadorDeCampo
-     */
-    public JugadorDeCampo()
+    private int pase;
+    private int regate;
+    private int remate;
+    
+    public JugadorDeCampo(String nom, int edad, int estado, int dorsal, int pase, int regate, int remate)
     {
-        
+        super(nom, edad, estado, dorsal);
+        this.pase = pase;
+        this.regate = regate;
+        this.remate = remate;
+    }
+    
+    public int getPase(){
+        return pase;
+    }
+    
+    public int getRegate(){
+        return regate;
+    }
+    
+    public int getRemate(){
+        return remate;
     }
 }

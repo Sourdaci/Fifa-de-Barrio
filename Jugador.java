@@ -11,14 +11,34 @@ public abstract class Jugador
     private String nombre;
     private int edad;
     private int estadoForma;
+    private int dorsal;
 
     /**
      * Constructor for objects of class Jugador
      */
-    public Jugador(String nom, int edad, int estado)
+    public Jugador(String nom, int edad, int estado, int dorsal)
     {
         nombre = nom;
         this.edad = edad;
         estadoForma = estado;
+        this.dorsal = dorsal;
     }
+    
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public int getEdad(){
+        return edad;
+    }
+    
+    public int getEstadoForma(){
+        return estadoForma;
+    }
+    
+    public int getDorsal(){
+        return dorsal;
+    }
+    
+    
 }

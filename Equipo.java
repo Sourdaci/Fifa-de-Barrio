@@ -11,6 +11,7 @@ public class Equipo
     private int numJugadores;
     private String nombre;
     private ArrayList<Jugador> jugadores;
+    private int dorsalActual = 1;
 
     /**
      * Constructor for objects of class Equipo

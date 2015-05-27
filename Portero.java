@@ -7,10 +7,21 @@
  */
 public class Portero extends Jugador
 {
-    /**
-     * Constructor for objects of class Portero
-     */
-    public Portero()
+    private int agilidad;
+    private int fortalezaMental;
+    
+    public Portero(String nom, int edad, int estado, int dorsal, int agi, int fort)
     {
+        super(nom, edad, estado, dorsal);
+        agilidad = agi;
+        fortalezaMental = fort;
+    }
+    
+    public int getAgilidad(){
+        return agilidad;
+    }
+    
+    public int getFortalezaMental(){
+        return fortalezaMental;
     }
 }
