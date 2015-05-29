@@ -10,6 +10,17 @@ public class Portero extends Jugador
     private int agilidad;
     private int fortalezaMental;
     
+    /**
+     * Constructor for objects of class Portero
+     * 
+     * @param nom Nombre del jugador
+     * @param edad Edad del jugador
+     * @param estado Estado de forma del jugador [0,10]
+     * @param dorsal Numero de la camiseta del jugador
+     * @param agi Agilidad del jugador [0,10]
+     * @param fort Fortaleza mental del jugador [0,10]
+     * 
+     */
     public Portero(String nom, int edad, int estado, int dorsal, int agi, int fort)
     {
         super(nom, edad, estado, dorsal);
@@ -25,6 +36,11 @@ public class Portero extends Jugador
         return fortalezaMental;
     }
     
+    /**
+     * Calcula la valoracion del jugador en base a sus estadisticas
+     * 
+     * @return Valoracion media del jugador
+     */
     public int getValoracion(){
         return (int) ((getEstadoForma() + agilidad + fortalezaMental) / 3);
     }

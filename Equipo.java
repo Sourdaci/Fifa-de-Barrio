@@ -20,7 +20,10 @@ public class Equipo
         "Emilio", "Cesar", "German", "Raul", "Pablo"};
 
     /**
-     * Constructor for objects of class Equipo
+     * Crea un nuevo equipo
+     * 
+     * @param nom Nombre del equipo
+     * @param num Numero de jugadores del equipo
      */
     public Equipo(String nom, int num)
     {
@@ -30,6 +33,10 @@ public class Equipo
         creaEquipo();
     }
     
+    /**
+     * Crea los jugadores del equipo de futbol. 
+     * Se les asignan estadisticas de forma aleatoria
+     */
     private void creaEquipo(){
         Random aleatorio = new Random();
         String nom = nombres[aleatorio.nextInt(nombres.length)];
@@ -50,6 +57,11 @@ public class Equipo
         }
     }
     
+    /**
+     * Calcula el numero de jugadores del equipo que estan en el banquillo
+     * 
+     * @return Numero de jugadores suplentes
+     */
     public int getReservas(){
         int numero = 0;
         if(numJugadores > 11){
@@ -58,6 +70,10 @@ public class Equipo
         return numero;
     }
     
+    /**
+     * Crea las alineaciones para el partido. El portero es siempre titular. 
+     * El resto de los jugadores se seleccionan aleatoriamente. El primero de ellos sera el capitan.
+     */
     public void mostrarAlineaciones(){
         float acumulador = 0;
         ArrayList<Jugador> alinear = new ArrayList<Jugador>(jugadores);

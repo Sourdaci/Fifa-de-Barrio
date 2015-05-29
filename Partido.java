@@ -12,6 +12,9 @@ public class Partido
 
     /**
      * Constructor for objects of class Partido
+     * 
+     * @param equi1 Equipo que juega como local
+     * @param equi2 Equipo que juega como visitante
      */
     public Partido(Equipo equi1, Equipo equi2)
     {
@@ -19,6 +22,9 @@ public class Partido
         visitante = equi2;
     }
     
+    /**
+     * Muestra las alineaciones de los equipos que jugaran el partido
+     */
     public void mostrarAlineaciones(){
         local.mostrarAlineaciones();
         System.out.println("");

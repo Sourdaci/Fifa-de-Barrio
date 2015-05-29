@@ -15,6 +15,11 @@ public abstract class Jugador
 
     /**
      * Constructor for objects of class Jugador
+     * 
+     * @param nom Nombre del jugador
+     * @param edad Edad del jugador
+     * @param estado Estado de forma del jugador [0,10]
+     * @param dorsal Numero de la camiseta del jugador
      */
     public Jugador(String nom, int edad, int estado, int dorsal)
     {
@@ -48,5 +53,8 @@ public abstract class Jugador
         return cadena;
     }
     
+    /**
+     * Calcula la valoracion del jugador en base a sus estadisticas
+     */
     public abstract int getValoracion();
 }
