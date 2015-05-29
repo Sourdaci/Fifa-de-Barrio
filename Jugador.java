@@ -45,6 +45,10 @@ public abstract class Jugador
         return dorsal;
     }
     
+    public void setEstado(int estado){
+        estadoForma = estado;
+    }
+    
     @Override
     public String toString(){
         String cadena = String.format("%s %2d%s ", "Dorsal", dorsal, ".");

@@ -18,6 +18,7 @@ public class Equipo
         "Hector", "Mario", "Felipe", "Manuel", "Tomas", "Agustin", "Jose Manuel", "Juan Jesus", 
         "Pepe", "Ricardo", "Fernando", "Antonio", "Jose Alberto", "Jose Luis", "David", 
         "Emilio", "Cesar", "German", "Raul", "Pablo"};
+    private boolean hayCrack;
 
     /**
      * Crea un nuevo equipo
@@ -31,6 +32,7 @@ public class Equipo
         numJugadores = num;
         jugadores = new ArrayList<Jugador>();
         creaEquipo();
+        hayCrack = false;
     }
     
     /**
@@ -39,12 +41,19 @@ public class Equipo
      */
     private void creaEquipo(){
         Random aleatorio = new Random();
+        //miramos si va a haber un crack o no.
+        int crack = aleatorio.nextInt(2);
+        if(crack == 1){
+            hayCrack = true;
+        }
+        
         String nom = nombres[aleatorio.nextInt(nombres.length)];
         int edad = aleatorio.nextInt(23) + 18;
         int estadoForma = aleatorio.nextInt(11);
         int pase, regate, remate;
         jugadores.add(new Portero(nom, edad, estadoForma, dorsalActual, aleatorio.nextInt(11), aleatorio.nextInt(11)));
         dorsalActual++;
+        
         for (int i=1; i<numJugadores; i++){
             nom = nombres[aleatorio.nextInt(nombres.length)];
             edad = aleatorio.nextInt(23) + 18;
@@ -54,6 +63,14 @@ public class Equipo
             remate = aleatorio.nextInt(11);
             jugadores.add(new JugadorDeCampo(nom, edad, estadoForma, dorsalActual, pase, regate, remate));
             dorsalActual++;
+        }
+        
+        if (hayCrack){
+            int elegido = aleatorio.nextInt(10)+1;
+            ((JugadorDeCampo)jugadores.get(elegido)).setPase(10);
+            ((JugadorDeCampo)jugadores.get(elegido)).setRegate(10);
+            ((JugadorDeCampo)jugadores.get(elegido)).setRemate(10);
+            jugadores.get(elegido).setEstado(10);
         }
     }
     

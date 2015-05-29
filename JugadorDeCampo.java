@@ -42,6 +42,19 @@ public class JugadorDeCampo extends Jugador
         return remate;
     }
     
+    public void setPase(int pase){
+        this.pase = pase;
+    }
+    public void setRegate(int regate){
+        this.regate = regate;
+    }
+    public void setRemate(int remate){
+        this.remate = remate;
+    }
+    public void setEstado(int estado){
+        super.setEstado(estado);
+    }
+    
     /**
      * Calcula la valoracion del jugador en base a sus estadisticas
      * 
