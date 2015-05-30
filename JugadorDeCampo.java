@@ -54,6 +54,20 @@ public class JugadorDeCampo extends Jugador
     public void setEstado(int estado){
         super.setEstado(estado);
     }
+    public void entrenar(float aumento){
+        if((pase*((aumento/100)+1))<10){
+            pase = (int)(pase*((aumento/100)+1));
+        };
+        if((regate*((aumento/100)+1))<10){
+            regate=(int)(regate*((aumento/100)+1));
+        };
+        if((remate*((aumento/100)+1))<10){
+            remate=(int)(remate*((aumento/100)+1));
+        };
+        if(((getEstadoForma()*((getEstadoForma()/100)+1)))<10){
+            setEstado((int)(getEstadoForma()*((aumento/100)+1)));
+        };
+    }
     
     /**
      * Calcula la valoracion del jugador en base a sus estadisticas

@@ -36,6 +36,18 @@ public class Portero extends Jugador
         return fortalezaMental;
     }
     
+    public void entrenar(float aumento){
+        if(agilidad*((aumento/100)+1)<10){
+            agilidad = (int)(agilidad*((aumento/100)+1));
+        }
+        if(fortalezaMental*((aumento/100)+1)<10){
+            fortalezaMental = (int)(fortalezaMental*((aumento/100)+1));
+        };
+        if((getEstadoForma()*((getEstadoForma()/100)+1))<10){
+            setEstado((int)(getEstadoForma()*((aumento/100)+1)));
+        };
+    }
+    
     /**
      * Calcula la valoracion del jugador en base a sus estadisticas
      * 

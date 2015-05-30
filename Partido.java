@@ -1,4 +1,4 @@
-
+import java.util.Random;
 /**
  * Write a description of class Partido here.
  * 
@@ -9,6 +9,8 @@ public class Partido
 {
     // instance variables - replace the example below with your own
     private Equipo local, visitante;
+    private int golesL;
+    private int golesV;
 
     /**
      * Constructor for objects of class Partido
@@ -20,6 +22,8 @@ public class Partido
     {
         local = equi1;
         visitante = equi2;
+        golesL = 0;
+        golesV = 0;
     }
     
     /**
@@ -30,4 +34,34 @@ public class Partido
         System.out.println("");
         visitante.mostrarAlineaciones();
     }
+    
+    /**
+     * Jugar el partido
+     */
+    public void jugarPartido(){
+        if (local.valoracionMedia() > visitante.valoracionMedia()){
+            golesL = (int)(((local.valoracionMedia() - visitante.valoracionMedia())*10));
+            Random aleatorio = new Random();
+            int goles = aleatorio.nextInt(5);
+            golesL += goles;
+            golesV += goles;
+        }
+        else {
+            golesV = (int)(((visitante.valoracionMedia() - local.valoracionMedia())*10));
+            Random aleatorio = new Random();
+            int goles = aleatorio.nextInt(5);
+            golesL += goles;
+            golesV += goles;
+        }
+    }
+    
+    /**
+     * Mostrar Resultado
+     */
+    public void verResultado(){
+        jugarPartido();
+        System.out.println("Local " + golesL + " - " + golesV + " Visitante");
+        
+    }
+    
 }

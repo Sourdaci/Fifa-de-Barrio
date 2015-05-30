@@ -61,4 +61,9 @@ public abstract class Jugador
      * Calcula la valoracion del jugador en base a sus estadisticas
      */
     public abstract int getValoracion();
+    
+    /**
+     * Aumenta las caracteristicas del jugador
+     */
+    public abstract void entrenar(float aumento);
 }

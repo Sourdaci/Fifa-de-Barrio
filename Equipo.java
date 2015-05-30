@@ -64,7 +64,7 @@ public class Equipo
             jugadores.add(new JugadorDeCampo(nom, edad, estadoForma, dorsalActual, pase, regate, remate));
             dorsalActual++;
         }
-        
+        //Si hay crack lo modificamos
         if (hayCrack){
             int elegido = aleatorio.nextInt(10)+1;
             ((JugadorDeCampo)jugadores.get(elegido)).setPase(10);
@@ -116,5 +116,26 @@ public class Equipo
             queCorre = alinear.remove(aleatorio.nextInt(alinear.size()));
             System.out.println(queCorre.toString() + "\tValoracion: " + queCorre.getValoracion());
         }
+    }
+    /**
+     * Aumentamos un tanto porciento aleatorio las habilidades de los jugadores del equipo
+     */
+    public void entrenar(){
+        Random aleatorio = new Random();
+        int aumento = aleatorio.nextInt(101);
+        for(Jugador jugador : jugadores){
+            jugador.entrenar(aumento);
+        }
+        
+    }
+    /**
+     * Devolvemos la media de valoracion de todo el equipo.
+     */
+    public double valoracionMedia(){
+        double media = 0;
+        for(Jugador jugador:jugadores){
+            media += jugador.getValoracion();
+        }
+        return media/numJugadores;
     }
 }
