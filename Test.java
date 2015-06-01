@@ -1,11 +1,9 @@
 public class Test
 {
-    public Test() 
+    public void Test1() 
     {
-        Equipo equipo1 = new Equipo("SOLTEROS", 15);
-        Equipo equipo2 = new Equipo("CASADOS", 15);
-        Partido miPartido = new Partido(equipo1, equipo2);
-        miPartido.mostrarAlineaciones();
-        miPartido.verResultado();
+        Liga liga = new Liga(10);
+        //liga.simularJornadas(9); //simula toda la liga mostrando por pantalla el desarrollo de cada jornada
+        liga.mostrarClasificaciones();
     }
 }

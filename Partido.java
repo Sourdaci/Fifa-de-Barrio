@@ -53,6 +53,18 @@ public class Partido
             golesL += goles;
             golesV += goles;
         }
+        // sumamos los puntos a los equipos
+        if(golesL > golesV){
+            local.victoria();
+        }
+        else if (golesL < golesV){
+            visitante.victoria();
+        }
+        else {
+            local.empate();
+            visitante.empate();
+        }
+        
     }
     
     /**

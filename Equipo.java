@@ -19,6 +19,7 @@ public class Equipo
         "Pepe", "Ricardo", "Fernando", "Antonio", "Jose Alberto", "Jose Luis", "David", 
         "Emilio", "Cesar", "German", "Raul", "Pablo"};
     private boolean hayCrack;
+    private int puntos;
 
     /**
      * Crea un nuevo equipo
@@ -137,5 +138,23 @@ public class Equipo
             media += jugador.getValoracion();
         }
         return media/numJugadores;
+    }
+    /**
+     * sumamos puntos al equipo VICTORIA +3
+     */
+    public void victoria(){
+        puntos += 3;
+    }
+    /**
+     * sumamos puntos al equipo EMPATE +1
+     */
+    public void empate(){
+        puntos += 1;
+    }
+    /**
+     * Mostramo la informacion del equipo.
+     */
+    public String toString(){
+        return String.format("%-10s %2d",nombre,puntos);
     }
 }
