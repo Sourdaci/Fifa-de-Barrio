@@ -64,6 +64,9 @@ public class Partido
             local.empate();
             visitante.empate();
         }
+        // SUMAMOS UN PARTIDO JUGADO A CADA EQUIPO
+        local.addPartido();
+        visitante.addPartido();
         
     }
     

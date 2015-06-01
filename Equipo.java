@@ -20,6 +20,7 @@ public class Equipo
         "Emilio", "Cesar", "German", "Raul", "Pablo"};
     private boolean hayCrack;
     private int puntos;
+    private int partidosJugados;
 
     /**
      * Crea un nuevo equipo
@@ -34,6 +35,8 @@ public class Equipo
         jugadores = new ArrayList<Jugador>();
         creaEquipo();
         hayCrack = false;
+        puntos = 0;
+        partidosJugados=0;
     }
     
     /**
@@ -152,9 +155,15 @@ public class Equipo
         puntos += 1;
     }
     /**
+     * sumamos un partido mas
+     */
+    public void addPartido(){
+        partidosJugados++;
+    }
+    /**
      * Mostramo la informacion del equipo.
      */
     public String toString(){
-        return String.format("%-10s %2d",nombre,puntos);
+        return String.format("%-10s %2d %2d",nombre,puntos,partidosJugados);
     }
 }
