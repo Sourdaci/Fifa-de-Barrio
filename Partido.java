@@ -40,14 +40,14 @@ public class Partido
      */
     public void jugarPartido(){
         if (local.valoracionMedia() > visitante.valoracionMedia()){
-            golesL = (int)(((local.valoracionMedia() - visitante.valoracionMedia())*10));
+            golesL = (int)(((local.valoracionMedia() - visitante.valoracionMedia())*10)/2);
             Random aleatorio = new Random();
             int goles = aleatorio.nextInt(5);
             golesL += goles;
             golesV += goles;
         }
         else {
-            golesV = (int)(((visitante.valoracionMedia() - local.valoracionMedia())*10));
+            golesV = (int)(((visitante.valoracionMedia() - local.valoracionMedia())*10)/2);
             Random aleatorio = new Random();
             int goles = aleatorio.nextInt(5);
             golesL += goles;
@@ -56,9 +56,11 @@ public class Partido
         // sumamos los puntos a los equipos
         if(golesL > golesV){
             local.victoria();
+            visitante.derrota();
         }
         else if (golesL < golesV){
             visitante.victoria();
+            local.derrota();
         }
         else {
             local.empate();
@@ -75,7 +77,7 @@ public class Partido
      */
     public void verResultado(){
         jugarPartido();
-        System.out.println("Local " + golesL + " - " + golesV + " Visitante");
+        System.out.println("(L) "+ golesL + " - " + golesV + " (V) " + local.getNombre()+ " vs " + visitante.getNombre() );
         
     }
     

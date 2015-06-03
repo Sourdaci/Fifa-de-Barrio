@@ -21,6 +21,9 @@ public class Equipo
     private boolean hayCrack;
     private int puntos;
     private int partidosJugados;
+    private int partidosGanados;
+    private int partidosEmpatados;
+    private int partidosPerdidos;
 
     /**
      * Crea un nuevo equipo
@@ -36,6 +39,9 @@ public class Equipo
         creaEquipo();
         hayCrack = false;
         puntos = 0;
+        partidosGanados=0;
+        partidosPerdidos=0;
+        partidosEmpatados=0;
         partidosJugados=0;
     }
     
@@ -76,6 +82,20 @@ public class Equipo
             ((JugadorDeCampo)jugadores.get(elegido)).setRemate(10);
             jugadores.get(elegido).setEstado(10);
         }
+    }
+    
+    /**
+     * Devuelve el nombre del equipo
+     */
+    public String getNombre(){
+        return nombre;
+    }
+    /**
+     * Devuelve los puntos que tiene el equipo.
+     */
+    public int getPuntos()
+    {
+        return puntos;
     }
     
     /**
@@ -147,12 +167,14 @@ public class Equipo
      */
     public void victoria(){
         puntos += 3;
+        partidosGanados += 1;
     }
     /**
      * sumamos puntos al equipo EMPATE +1
      */
     public void empate(){
         puntos += 1;
+        partidosEmpatados += 1;
     }
     /**
      * sumamos un partido mas
@@ -161,9 +183,15 @@ public class Equipo
         partidosJugados++;
     }
     /**
+     * sumamos un partido perdido
+     */
+    public void derrota(){
+        partidosPerdidos += 1;
+    }
+    /**
      * Mostramo la informacion del equipo.
      */
     public String toString(){
-        return String.format("%-10s %2d %2d",nombre,puntos,partidosJugados);
+        return String.format("%-10s %2d %2d %2d %2d %2d",nombre,puntos,partidosGanados,partidosEmpatados,partidosPerdidos,partidosJugados);
     }
 }
